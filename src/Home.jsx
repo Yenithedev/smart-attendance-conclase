@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Link} from "react-router-dom"
 import { Menu, X, Clock, Users, FileText, Shield, Smartphone, BarChart3, Lock, CheckCircle, QrCode, Zap, TrendingUp, Award, Database,MapPin,Phone, Linkedin, Twitter, Youtube } from "lucide-react";
 import landing1 from './assets/landing1.jpg'
-import landing2 from './assets/landing1.jpg'
-import landing3 from './assets/landing1.jpg'
+import landing2 from './assets/landing2.jpg'
+import landing3 from './assets/landing3.jpg'
 
 const Home = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
