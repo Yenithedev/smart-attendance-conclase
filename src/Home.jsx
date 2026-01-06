@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link} from "react-router-dom"
 import { Menu, X, Clock, Users, FileText, Shield, Smartphone, BarChart3, Lock, CheckCircle, QrCode, Zap, TrendingUp, Award, Database,MapPin,Phone, Linkedin, Twitter, Youtube } from "lucide-react";
+import landing1 from './assets/landing1.jpg'
 
 const Home = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -251,7 +252,7 @@ const Home = () => {
             <div className="relative">
               <div className="rounded-2xl overflow-hidden shadow-xl">
                 <img
-                  src="/assets/landing1.jpg"
+                  src={landing1}
                   alt="Team collaboration"
                   className="w-full h-96 object-cover"
                 />
@@ -602,7 +603,7 @@ const Home = () => {
             <div className="relative">
               <div className="rounded-2xl overflow-hidden shadow-xl">
                 <img
-                  src="/assets/landing2.jpg"
+                  src="src/assets/landing2.jpg"
                   alt="Security"
                   className="w-full h-full object-cover"
                 />
@@ -631,7 +632,7 @@ const Home = () => {
               </div>
               <div className="rounded-2xl overflow-hidden">
                 <img
-                  src="/assets/landing3.jpg"
+                  src="src/assets/landing3.jpg"
                   alt="Growth"
                   className="w-full h-96 object-cover"
                 />
