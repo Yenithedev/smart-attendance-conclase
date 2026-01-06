@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link} from "react-router-dom"
 import { Menu, X, Clock, Users, FileText, Shield, Smartphone, BarChart3, Lock, CheckCircle, QrCode, Zap, TrendingUp, Award, Database,MapPin,Phone, Linkedin, Twitter, Youtube } from "lucide-react";
 import landing1 from './assets/landing1.jpg'
+import landing2 from './assets/landing1.jpg'
+import landing3 from './assets/landing1.jpg'
 
 const Home = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -603,7 +605,7 @@ const Home = () => {
             <div className="relative">
               <div className="rounded-2xl overflow-hidden shadow-xl">
                 <img
-                  src="src/assets/landing2.jpg"
+                  src={landing2}
                   alt="Security"
                   className="w-full h-full object-cover"
                 />
@@ -632,7 +634,7 @@ const Home = () => {
               </div>
               <div className="rounded-2xl overflow-hidden">
                 <img
-                  src="src/assets/landing3.jpg"
+                  src={landing3}
                   alt="Growth"
                   className="w-full h-96 object-cover"
                 />
