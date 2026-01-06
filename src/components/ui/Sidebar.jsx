@@ -109,7 +109,7 @@ const Sidebar = ({collapsed,setCollapsed}) => {
           {!collapsed && <span>Log Out</span>}
     </button>
     </AlertDialogTrigger>
-  <AlertDialogContent className="bg-[#EAE9E9] p-5 lg:p-15 rounded-xl text-sm shadow-2xl w-[70%] md:w-[40%] max-w-x">
+  <AlertDialogContent className="bg-[#EAE9E9] p-5 lg:p-15 rounded-xl text-sm shadow-2xl w-[80%] md:w-[40%] max-w-x">
     <AlertDialogHeader>
       <AlertDialogTitle className="mb-7 text-center text-sm">Dear User are you sure you want to log out?</AlertDialogTitle>
     </AlertDialogHeader>
@@ -126,3 +126,4 @@ const Sidebar = ({collapsed,setCollapsed}) => {
 };
 
 export default Sidebar;
+
