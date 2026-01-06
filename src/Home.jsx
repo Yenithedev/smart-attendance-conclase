@@ -251,7 +251,7 @@ const Home = () => {
             <div className="relative">
               <div className="rounded-2xl overflow-hidden shadow-xl">
                 <img
-                  src="src/assets/landing1.jpg"
+                  src="/assets/landing1.jpg"
                   alt="Team collaboration"
                   className="w-full h-96 object-cover"
                 />
@@ -602,7 +602,7 @@ const Home = () => {
             <div className="relative">
               <div className="rounded-2xl overflow-hidden shadow-xl">
                 <img
-                  src="src/assets/landing2.jpg"
+                  src="/assets/landing2.jpg"
                   alt="Security"
                   className="w-full h-full object-cover"
                 />
@@ -631,7 +631,7 @@ const Home = () => {
               </div>
               <div className="rounded-2xl overflow-hidden">
                 <img
-                  src="src/assets/landing3.jpg"
+                  src="/assets/landing3.jpg"
                   alt="Growth"
                   className="w-full h-96 object-cover"
                 />
