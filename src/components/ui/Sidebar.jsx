@@ -27,10 +27,10 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
     <div
       className={`${
         collapsed ? "w-16 sm:w-20" : "w-56 sm:w-64"
-      } h-[90vh] fixed bg-white border-r flex flex-col justify-between transition-all duration-300 overflow-y-auto`}
+      } h-screen fixed bg-white border-r flex flex-col transition-all duration-300`}
     >
       {/* Top */}
-      <div>
+      <div className="flex-1 overflow-y-auto">
         {/* Logo + Toggle */}
         <div className="flex items-center justify-between px-2 sm:px-4 h-14 sm:h-16 border-b">
           {!collapsed && (
@@ -126,10 +126,10 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
       </div>
 
       {/* Logout */}
-      <div className="pb-4">
+      <div className="border-t bg-white p-2 sm:p-4">
         <AlertDialog>
-          <AlertDialogTrigger className="w-full px-2 sm:px-4 py-3 sm:py-4">
-            <button className="flex items-center gap-2 sm:gap-3 text-red-500 hover:underline w-full p-2 sm:p-3 rounded-lg hover:bg-red-50">
+          <AlertDialogTrigger asChild>
+            <button className="flex items-center gap-2 sm:gap-3 text-red-500 hover:bg-red-50 w-full p-2 sm:p-3 rounded-lg transition-colors">
               <LogOut className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
               {!collapsed && <span className="text-sm sm:text-base">Log Out</span>}
             </button>
