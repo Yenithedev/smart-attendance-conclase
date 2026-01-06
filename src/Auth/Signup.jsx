@@ -88,7 +88,7 @@ const Signup = () => {
   }
 
   return (
-    <div className="h-screen w-full bg-cover bg-center flex items-center justify-center relative">
+    <div className="min-h-screen w-full bg-cover bg-center flex items-center justify-center relative px-4 sm:px-6 py-8">
       <div className="absolute inset-0 bg-[url('assets/imagebackground.jpg')] bg-cover bg-center"></div>
 
       <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/70 via-indigo-800/40 to-purple-600/20 mix-blend-multiply"></div>
@@ -98,9 +98,9 @@ const Signup = () => {
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        <Form className="bg-white/70 backdrop-blur-md p-10 rounded-xl shadow-2xl w-[70%] md:w-[40%] max-h-[90vh] overflow-y-auto">
+        <Form className="bg-white/70 backdrop-blur-md p-6 sm:p-8 md:p-10 rounded-xl shadow-2xl w-full sm:w-[85%] md:w-[70%] lg:w-[40%] max-w-xl max-h-[90vh] overflow-y-auto relative z-10">
           {/* Full Name */}
-          <div>
+          <div className="mb-4">
             <label className="block text-sm lg:text-lg pl-2 font-medium text-black">
               Full Name
             </label>
@@ -110,14 +110,14 @@ const Signup = () => {
               type="text"
             />
             <ErrorMessage
-              className="text-red-500 ml-3"
+              className="text-red-500 ml-3 text-xs sm:text-sm"
               name="fullName"
               component="div"
             />
           </div>
 
           {/* Phone */}
-          <div>
+          <div className="mb-4">
             <label className="block text-sm lg:text-lg pl-2 font-medium text-black">
               Phone Number
             </label>
@@ -127,14 +127,14 @@ const Signup = () => {
               type="tel"
             />
             <ErrorMessage
-              className="text-red-500 ml-3"
+              className="text-red-500 ml-3 text-xs sm:text-sm"
               name="phoneNumber"
               component="div"
             />
           </div>
 
           {/* Email */}
-          <div>
+          <div className="mb-4">
             <label className="block text-sm lg:text-lg pl-2 font-medium text-black">
               Email
             </label>
@@ -144,14 +144,14 @@ const Signup = () => {
               type="email"
             />
             <ErrorMessage
-              className="text-red-500 ml-3"
+              className="text-red-500 ml-3 text-xs sm:text-sm"
               name="email"
               component="div"
             />
           </div>
 
           {/* Department */}
-          <div>
+          <div className="mb-4">
             <label className="block text-sm lg:text-lg pl-2 font-medium text-black">
               Department
             </label>
@@ -171,59 +171,63 @@ const Signup = () => {
               ))}
             </Field>
             <ErrorMessage
-              className="text-red-500 ml-3"
+              className="text-red-500 ml-3 text-xs sm:text-sm"
               name="departmentId"
               component="div"
             />
           </div>
 
           {/* Password */}
-          <div className="relative">
+          <div className="mb-4 relative">
             <label className="block text-sm lg:text-lg pl-2 font-medium text-black">
               Password
             </label>
-            <Field
-              className="w-full border border-black rounded-md p-2 mt-1 pr-10"
-              name="password"
-              type={showPassword ? "text" : "password"}
-            />
-            <span
-              className="absolute right-3 top-[35px] lg:top-[45px] cursor-pointer text-gray-600"
-              onClick={() => setShowPassword(!showPassword)}
-            >
-              {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-            </span>
+            <div className="relative">
+              <Field
+                className="w-full border border-black rounded-md p-2 mt-1 pr-10"
+                name="password"
+                type={showPassword ? "text" : "password"}
+              />
+              <span
+                className="absolute right-3 top-1/2 -translate-y-1/2 mt-0.5 cursor-pointer text-gray-600"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+              </span>
+            </div>
             <ErrorMessage
-              className="text-red-500 ml-3"
+              className="text-red-500 ml-3 text-xs sm:text-sm"
               name="password"
               component="div"
             />
           </div>
 
           {/* Confirm Password */}
-          <div className="relative">
+          <div className="mb-4 relative">
             <label className="block text-sm lg:text-lg pl-2 font-medium text-black">
               Confirm Password
             </label>
-            <Field
-              className="w-full border border-black rounded-md p-2 mt-1 pr-10"
-              name="comfirmPassword"
-              type={showConfirmPassword ? "text" : "password"}
-            />
-            <span
-              className="absolute right-3 top-[35px] lg:top-[45px] cursor-pointer text-gray-600"
-              onClick={() =>
-                setShowConfirmPassword(!showConfirmPassword)
-              }
-            >
-              {showConfirmPassword ? (
-                <EyeOff size={20} />
-              ) : (
-                <Eye size={20} />
-              )}
-            </span>
+            <div className="relative">
+              <Field
+                className="w-full border border-black rounded-md p-2 mt-1 pr-10"
+                name="comfirmPassword"
+                type={showConfirmPassword ? "text" : "password"}
+              />
+              <span
+                className="absolute right-3 top-1/2 -translate-y-1/2 mt-0.5 cursor-pointer text-gray-600"
+                onClick={() =>
+                  setShowConfirmPassword(!showConfirmPassword)
+                }
+              >
+                {showConfirmPassword ? (
+                  <EyeOff className="w-5 h-5" />
+                ) : (
+                  <Eye className="w-5 h-5" />
+                )}
+              </span>
+            </div>
             <ErrorMessage
-              className="text-red-500 ml-3"
+              className="text-red-500 ml-3 text-xs sm:text-sm"
               name="comfirmPassword"
               component="div"
             />
@@ -233,13 +237,13 @@ const Signup = () => {
           <div className="flex justify-center mt-5">
             <button
               type="submit"
-              className="bg-blue-800 text-white px-6 py-2 rounded-md shadow hover:bg-blue-700"
+              className="bg-blue-800 text-white px-8 sm:px-10 lg:px-15 py-2 rounded-md shadow hover:bg-blue-700 text-sm sm:text-base"
             >
               Sign up
             </button>
           </div>
 
-          <div className="mt-6 text-center text-sm text-gray-700">
+          <div className="mt-6 text-center text-xs sm:text-sm text-gray-700">
             Already have an account?
             <Link
               className="text-blue-700 hover:underline ml-1"
