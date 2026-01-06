@@ -1,5 +1,5 @@
-import { Link,useNavigate,useLocation } from "react-router-dom";
-import { useState,useEffect } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -11,116 +11,152 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
-import { LayoutDashboard, UsersRound, QrCode,Settings, ChartColumn, ClipboardCheck, LogOut  } from "lucide-react";
+import { LayoutDashboard, UsersRound, QrCode, Settings, ChartColumn, ClipboardCheck, LogOut } from "lucide-react";
 
-const Sidebar = ({collapsed,setCollapsed}) => {
-  const {pathname} = useLocation()
+const Sidebar = ({ collapsed, setCollapsed }) => {
+  const { pathname } = useLocation()
   const navigate = useNavigate()
   
-  useEffect(()=>{
+  useEffect(() => {
     if (window.innerWidth < 768) {
       setCollapsed(true);
     }
-  },[])
+  }, [])
+  
   return (
     <div
       className={`${
-        collapsed ? "w-20" : "w-64"
-      } h-[90vh] fixed bg-white border-r flex flex-col justify-between transition-all duration-300`}
+        collapsed ? "w-16 sm:w-20" : "w-56 sm:w-64"
+      } h-[90vh] fixed bg-white border-r flex flex-col justify-between transition-all duration-300 overflow-y-auto`}
     >
       {/* Top */}
       <div>
         {/* Logo + Toggle */}
-        <div className="flex items-center justify-between px-4 h-16 border-b">
+        <div className="flex items-center justify-between px-2 sm:px-4 h-14 sm:h-16 border-b">
           {!collapsed && (
-            <h1 className="text-[#2E31D6] font-bold text-lg">
+            <h1 className="text-[#2E31D6] font-bold text-base sm:text-lg">
               Attendance
             </h1>
           )}
 
           <button
             onClick={() => setCollapsed(!collapsed)}
-            className="text-gray-600 hover:text-blue-600"
+            className="text-gray-600 hover:text-blue-600 text-xl"
           >
             ☰
           </button>
         </div>
 
         {/* Menu */}
-        <div className="px-4 pt-3 space-y-2">
+        <div className="px-2 sm:px-4 pt-3 space-y-2">
 
           <Link
             to="/admin"
-            className={`${pathname=="/admin" ? "flex items-center gap-3 p-3 rounded-lg bg-[#2E31D6] text-white" : "flex items-center gap-3 p-3 rounded-lg text-black"}`}
+            className={`${
+              pathname == "/admin" 
+                ? "flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg bg-[#2E31D6] text-white" 
+                : "flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg text-black hover:bg-gray-100"
+            }`}
           >
-            <LayoutDashboard />
-            {!collapsed && <span>Dashboard Overview</span>}
+            <LayoutDashboard className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+            {!collapsed && <span className="text-sm sm:text-base">Dashboard Overview</span>}
           </Link>
 
           <Link
             to="staff"
-            className={`${pathname=="/admin/staff" ? "flex items-center gap-3 p-3 rounded-lg bg-[#2E31D6] text-white" : "flex items-center gap-3 p-3 rounded-lg text-black"}`}
+            className={`${
+              pathname == "/admin/staff" 
+                ? "flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg bg-[#2E31D6] text-white" 
+                : "flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg text-black hover:bg-gray-100"
+            }`}
           >
-            <UsersRound />
-            {!collapsed && <span>Staff Management</span>}
+            <UsersRound className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+            {!collapsed && <span className="text-sm sm:text-base">Staff Management</span>}
           </Link>
 
           <Link
             to="attendance"
-            className={`${pathname=="/admin/attendance" ? "flex items-center gap-3 p-3 rounded-lg bg-[#2E31D6] text-white" : "flex items-center gap-3 p-3 rounded-lg text-black"}`}
+            className={`${
+              pathname == "/admin/attendance" 
+                ? "flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg bg-[#2E31D6] text-white" 
+                : "flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg text-black hover:bg-gray-100"
+            }`}
           >
-            <ClipboardCheck />
-            {!collapsed && <span>Attendance Records</span>}
+            <ClipboardCheck className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+            {!collapsed && <span className="text-sm sm:text-base">Attendance Records</span>}
           </Link>
 
           <Link
             to="qrcode"
-            className={`${pathname=="/admin/qrcode" ? "flex items-center gap-3 p-3 rounded-lg bg-[#2E31D6] text-white" : "flex items-center gap-3 p-3 rounded-lg text-black"}`}
+            className={`${
+              pathname == "/admin/qrcode" 
+                ? "flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg bg-[#2E31D6] text-white" 
+                : "flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg text-black hover:bg-gray-100"
+            }`}
           >
-            <QrCode />
-            {!collapsed && <span>QR Code Management</span>}
+            <QrCode className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+            {!collapsed && <span className="text-sm sm:text-base">QR Code Management</span>}
           </Link>
 
           <Link
             to="reports"
-            className={`${pathname=="/admin/reports" ? "flex items-center gap-3 p-3 rounded-lg bg-[#2E31D6] text-white" : "flex items-center gap-3 p-3 rounded-lg text-black"}`}
+            className={`${
+              pathname == "/admin/reports" 
+                ? "flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg bg-[#2E31D6] text-white" 
+                : "flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg text-black hover:bg-gray-100"
+            }`}
           >
-            <ChartColumn />
-            {!collapsed && <span>Reports & Analytics</span>}
+            <ChartColumn className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+            {!collapsed && <span className="text-sm sm:text-base">Reports & Analytics</span>}
           </Link>
 
           <Link
             to="systemsettings"
-            className={`${pathname=="/admin/systemsettings" ? "flex items-center gap-3 p-3 rounded-lg bg-[#2E31D6] text-white" : "flex items-center gap-3 p-3 rounded-lg text-black"}`}
+            className={`${
+              pathname == "/admin/systemsettings" 
+                ? "flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg bg-[#2E31D6] text-white" 
+                : "flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg text-black hover:bg-gray-100"
+            }`}
           >
-            <Settings />
-            {!collapsed && <span>System Settings</span>}
+            <Settings className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+            {!collapsed && <span className="text-sm sm:text-base">System Settings</span>}
           </Link>
 
         </div>
       </div>
 
       {/* Logout */}
-    
-      <AlertDialog>
-    <AlertDialogTrigger className="p-6">
-    <button className="flex items-center gap-3 text-red-500 hover:underline">
-          <LogOut/>
-          {!collapsed && <span>Log Out</span>}
-    </button>
-    </AlertDialogTrigger>
-  <AlertDialogContent className="bg-[#EAE9E9] p-5 lg:p-15 rounded-xl text-sm shadow-2xl w-[70%] md:w-[40%] max-w-x">
-    <AlertDialogHeader>
-      <AlertDialogTitle className="mb-7 text-center text-sm">Dear User are you sure you want to log out?</AlertDialogTitle>
-    </AlertDialogHeader>
-    <AlertDialogFooter className="flex justify-between gap-10 items-center">
-      <AlertDialogCancel className="bg-[#EAE9E9] cursor-pointer  border-black rounded py-5 px-10 hover:bg-[#2E31D6] hover:text-white">No</AlertDialogCancel>
-      <AlertDialogAction className="bg-[#2E31D6] cursor-pointer border rounded py-5 px-10 hover:bg-red-500 text-white" onClick={()=>{
-        navigate("/login")
-      }}>Yes</AlertDialogAction>
-    </AlertDialogFooter>
-  </AlertDialogContent>
-</AlertDialog>
+      <div className="pb-4">
+        <AlertDialog>
+          <AlertDialogTrigger className="w-full px-2 sm:px-4 py-3 sm:py-4">
+            <button className="flex items-center gap-2 sm:gap-3 text-red-500 hover:underline w-full p-2 sm:p-3 rounded-lg hover:bg-red-50">
+              <LogOut className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+              {!collapsed && <span className="text-sm sm:text-base">Log Out</span>}
+            </button>
+          </AlertDialogTrigger>
+          
+          <AlertDialogContent className="bg-[#EAE9E9] p-5 sm:p-8 md:p-10 rounded-xl shadow-2xl w-[90%] sm:w-[80%] md:w-[60%] lg:w-[40%] max-w-md mx-4">
+            <AlertDialogHeader>
+              <AlertDialogTitle className="mb-5 sm:mb-7 text-center text-sm sm:text-base">
+                Dear User, are you sure you want to log out?
+              </AlertDialogTitle>
+            </AlertDialogHeader>
+            <AlertDialogFooter className="flex flex-row justify-center gap-4 sm:gap-6 md:gap-10 items-center">
+              <AlertDialogCancel className="bg-[#EAE9E9] cursor-pointer border-black rounded py-2 sm:py-3 md:py-4 px-6 sm:px-8 md:px-10 hover:bg-[#2E31D6] hover:text-white text-sm sm:text-base">
+                No
+              </AlertDialogCancel>
+              <AlertDialogAction 
+                className="bg-[#2E31D6] cursor-pointer border rounded py-2 sm:py-3 md:py-4 px-6 sm:px-8 md:px-10 hover:bg-red-500 text-white text-sm sm:text-base" 
+                onClick={() => {
+                  navigate("/login")
+                }}
+              >
+                Yes
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
+      </div>
     </div>
   );
 };
