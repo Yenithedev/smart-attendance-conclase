@@ -3,7 +3,7 @@ import { Bell } from "lucide-react";
 
 const Navbar = () => {
   return (
-    <div className="w-full h-16 bg-[#2E31D6] flex items-center justify-between px-6">
+    <div className="w-full h-16 bg-[#2E31D6] flex items-center justify-between px-6 fixed z-10">
 
       {/* Left (empty like image) */}
       <div></div>

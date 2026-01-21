@@ -5,6 +5,7 @@ import axios from "axios"
 import { toast } from "react-toastify"
 import { useState, useEffect } from "react"
 import { Eye, EyeOff } from "lucide-react"
+import { BASE_URL } from "@/Apiconfig"
 
 const Signup = () => {
   const navigate = useNavigate()
@@ -57,7 +58,7 @@ const Signup = () => {
     const fetchDepartments = async () => {
       try {
         const response = await axios.get(
-          "https://smart-attendance-api-75yd.onrender.com/api/v1/departments"
+          `${BASE_URL}departments`
         )
         setDepartments(response.data.data)
         setLoadingDepartments(false)
@@ -74,7 +75,7 @@ const Signup = () => {
   const handleSubmit = async (values) => {
     try {
       const response = await axios.post(
-        "https://smart-attendance-api-75yd.onrender.com/api/v1/account/register",
+        `${BASE_URL}account/register`,
         values
       )
 

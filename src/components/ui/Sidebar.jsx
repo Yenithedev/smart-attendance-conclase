@@ -26,7 +26,7 @@ const Sidebar = ({collapsed,setCollapsed}) => {
     <div
       className={`${
         collapsed ? "w-20" : "w-64"
-      } h-[90vh] fixed bg-white border-r flex flex-col justify-between transition-all duration-300`}
+      } h-[90vh] fixed bg-white border-r mt-15 flex flex-col justify-between transition-all duration-300`}
     >
       {/* Top */}
       <div>

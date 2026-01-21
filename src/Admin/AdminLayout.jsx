@@ -3,12 +3,26 @@
 import Navbar from "@/components/ui/Navbar"
 import Sidebar from "@/components/ui/Sidebar"
 import { Outlet } from "react-router-dom"
-import { useState } from "react"
+import { useState,useEffect } from "react"
+import { useNavigate } from "react-router-dom"
+import { ThermometerSnowflakeIcon } from "lucide-react"
 
 
 
 const AdminLayout = () =>{
+
+    const Navigate = useNavigate();
     const [collapsed, setCollapsed] = useState(false);
+    const [token, setToken] = useState(localStorage.getItem("token"))
+    
+    
+    useEffect(()=>{
+       if (!token){
+        Navigate("/login")
+
+       }
+
+    },[token])
     return(
         <div>
             

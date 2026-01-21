@@ -5,12 +5,13 @@ import { useState } from "react"
 import { Eye, EyeOff } from "lucide-react"
 import axios from "axios"
 import { toast } from "react-toastify"
+import { BASE_URL } from "@/Apiconfig"
 
 const Login = () => {
     const navigate = useNavigate()
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#._-])[A-Za-z\d@$!%*?&#._-]{8,}$/
     const [showPassword, setShowPassword] = useState(false)
-    
+    const [accessToken,setAccessToken] = useState("")
     const initialValues = {
         email: "",
         password: "",
@@ -28,15 +29,20 @@ const Login = () => {
     const handleSubmit = async (values) => {
         try {
             const response = await axios.post(
-                "https://smart-attendance-api-75yd.onrender.com/api/v1/account/login",
+                `${BASE_URL}account/login`,
                 values
             )
+            console.log(response)
+            // setAccessToken(response.data.data.accessToken)
+            localStorage.setItem("token",response.data.data.accessToken)
+            setAccessToken(response.data.data.accessToken)
             toast.success("Login sucessful")
             navigate("/admin")
         } catch (error) {
             toast.error(error?.response?.data?.message)
         }
     }
+     
 
     return (
         <div className="min-h-screen w-full bg-cover bg-center flex items-center justify-center relative px-4 sm:px-6">
